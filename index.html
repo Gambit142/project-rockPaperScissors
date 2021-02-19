@@ -4,7 +4,78 @@
         <title>Project Rock Paper Scissors</title>
         <script type="text/javascript" src="scripts.js"></script>
         <link rel="stylesheet" href="styles.css">
-        
+        <style>
+            body {
+                background-color: turquoise;
+            }
+            #reload-btn {
+              position: absolute;
+              background-color: gray;
+              right: 40px;
+              top: 50px;
+              height: 40px;
+              width: 100px;
+              font-family: courier;
+              font-size: 17px;
+            }
+            h1 {
+              position: relative;
+              text-align: center;
+              margin: 120px;
+              font-family: monospace;
+              font-size: 40px;
+              margin-left: 5px;
+            }
+            h2 {
+              position: relative;
+              margin-top: -100px;
+              text-align: center;
+            }
+            #instructions {
+              font-size: 25px;
+            }
+            #game-instructions {
+              font-size: 18px;
+            }
+            #label-choice{
+              position: relative
+              text-align: center;
+              font-family: Helvitica;
+              font-size: 25px;
+              margin-left: 450px
+            }
+            #choice {
+              position: relative;
+              margin-left: 430px;
+              width: 14em;
+              height: 2em;
+
+            }
+            input[type="text"] {
+              font-family: monospace;
+              font-size: 20px;
+              text-align: center;
+            }
+            #submit-btn{
+              position: absolute;
+              background-color: gray;
+              font-family: courier;
+              width: 60px;
+              height: 20px;
+              padding: 1.8px;
+              margin-top: 11px;
+              margin-left: 15px;
+              border: 2px solid black;
+              border-radius: 7px;
+              cursor: pointer;
+            }
+            #results {
+              text-align: center;
+              margin-left: -100px;
+              font-family: monospace;
+              font-size: 20px
+            }
+        </style>
     </head>
     <body>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         <input type= 'button' id="reload-btn" value= 'RELOAD' 
@@ -27,4 +98,5 @@
             <button id="submit-btn" onclick="playRound()">Submit</button><br>
         </div><br>
         <div id="results"></div><br><br>
-   
+  </body>
+</html>
