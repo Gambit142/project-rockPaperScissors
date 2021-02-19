@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>Project Rock Paper Scissors</title>
+        <script type="text/javascript" src="scripts.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        
+    </head>
+    <body>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+        <input type= 'button' id="reload-btn" value= 'RELOAD' 
+        onclick="javascript:window.location.reload(true);">
+        <h1> Project Rock Paper Scissors</h1>
+        <h2> This game titled <i>Rock, Paper and Scissors</i> will be played between you the player and the computer.</h2>
+        <div id="instructions"> <b>Instructions</b><br>
+            <ul id="game-instructions">
+                <li> Input your object (rock, paper, scissors) in the box provided.</li>
+                <li> Please note that <i>'rock beats scissors'</i>, <i>'scissors beats paper'</i> and <i>'paper beats rock'.</i></li>
+                <li> The above instruction means that if you choose rock and computer chooses scissors, you win and vice versa.</li>
+                <li> The first to reach five (5) wins the game.</li>
+                <li> To play the game again, press the <code> RELOAD</code> button</li>
+                <li> <b> Goodluck! </b></li>
+            </ul>
+        </div>
+        <div>
+            <label id="label-choice" for"choice"><i><strong>Input your Object below<strong></i></label><br><br>
+            <input type="text" id="choice" name="choice">
+            <button id="submit-btn" onclick="playRound()">Submit</button><br>
+        </div><br>
+        <div id="results"></div><br><br>
+   
