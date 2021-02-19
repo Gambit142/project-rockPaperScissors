@@ -6,47 +6,50 @@
         <link rel="stylesheet" href="styles.css">
         <style>
             body {
-                background-color: turquoise;
+              background-color: rgb(1, 17, 15);
+              color: rgb(248, 150, 94);
             }
             #reload-btn {
               position: absolute;
               background-color: gray;
-              right: 40px;
-              top: 50px;
+              right: 30px;
+              top: 20px;
               height: 40px;
               width: 100px;
               font-family: courier;
               font-size: 17px;
+              cursor: pointer;
             }
             h1 {
               position: relative;
               text-align: center;
-              margin: 120px;
+              margin: 100px;
               font-family: monospace;
               font-size: 40px;
-              margin-left: 5px;
+              margin-left: 25px;
             }
             h2 {
               position: relative;
-              margin-top: -100px;
+              margin-top: -90px;
               text-align: center;
             }
             #instructions {
               font-size: 25px;
+              margin-left: 18px;
             }
             #game-instructions {
               font-size: 18px;
+              margin-left: 18px;
             }
             #label-choice{
-              position: relative
+              position: relative;
               text-align: center;
-              font-family: Helvitica;
               font-size: 25px;
-              margin-left: 450px
+              margin-left: 480px
             }
             #choice {
               position: relative;
-              margin-left: 430px;
+              margin-left: 460px;
               width: 14em;
               height: 2em;
 
@@ -71,32 +74,77 @@
             }
             #results {
               text-align: center;
-              margin-left: -100px;
+              margin-left: -125px;
               font-family: monospace;
               font-size: 20px
+            }
+            input {
+              outline-color: rgb(1, 56, 50);
             }
         </style>
     </head>
     <body>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-        <input type= 'button' id="reload-btn" value= 'RELOAD' 
-        onclick="javascript:window.location.reload(true);">
-        <h1> Project Rock Paper Scissors</h1>
-        <h2> This game titled <i>Rock, Paper and Scissors</i> will be played between you the player and the computer.</h2>
-        <div id="instructions"> <b>Instructions</b><br>
-            <ul id="game-instructions">
-                <li> Input your object (rock, paper, scissors) in the box provided.</li>
-                <li> Please note that <i>'rock beats scissors'</i>, <i>'scissors beats paper'</i> and <i>'paper beats rock'.</i></li>
-                <li> The above instruction means that if you choose rock and computer chooses scissors, you win and vice versa.</li>
-                <li> The first to reach five (5) wins the game.</li>
-                <li> To play the game again, press the <code> RELOAD</code> button</li>
-                <li> <b> Goodluck! </b></li>
-            </ul>
-        </div>
-        <div>
-            <label id="label-choice" for"choice"><i><strong>Input your Object below<strong></i></label><br><br>
-            <input type="text" id="choice" name="choice">
-            <button id="submit-btn" onclick="playRound()">Submit</button><br>
-        </div><br>
-        <div id="results"></div><br><br>
+      <input type= 'button' id="reload-btn" value= 'RELOAD' 
+      onclick="javascript:window.location.reload(true);">
+      <h1> Project Rock Paper Scissors</h1>
+      <h2> This game titled <i>Rock, Paper and Scissors</i> will be played between you the player and the computer.</h2>
+      <div id="instructions"> <b>Instructions</b><br>
+        <ul id="game-instructions">
+          <li> Input your object (rock, paper, scissors) in the box provided.</li>
+          <li> Please note that <i>'rock beats scissors'</i>, <i>'scissors beats paper'</i> and <i>'paper beats rock'.</i></li>
+          <li> The above instruction means that if you choose rock and computer chooses scissors, you win and vice versa.</li>
+          <li> The first to reach five (5) wins the game.</li>
+          <li> To play the game again, press the <code> RELOAD</code> button</li>
+          <li> <b> Goodluck! </b></li>
+        </ul>
+      </div>
+      <div>
+        <label id="label-choice" for="choice"><i><strong>Input your Object below<strong></i></label><br><br>
+        <input type="text" id="choice" name="choice">
+        <button id="submit-btn" onclick="playRound()">Submit</button><br>
+      </div><br>
+      <div id="results"></div><br><br>
+      <script>
+        let object= ['rock', 'paper', 'scissors'];
+          function computerPlayer() {
+            return object[Math.floor(Math.random()*object.length)];
+          }
+        function humanPlayer(){
+          return document.getElementById('choice').value.toLowerCase();
+        }
+
+        let playerScore= 0;
+        let computerScore= 0;
+        const result= document.getElementById('results');
+
+        function playRound() {
+        const playerSelection= humanPlayer();
+        const computerSelection= computerPlayer();
+  
+        if((playerSelection==='rock' && computerSelection==='scissors') ||
+          (playerSelection==='paper' && computerSelection==='rock') ||
+          (playerSelection==='scissors' && computerSelection==='paper')) {
+          playerScore+=1;
+        result.textContent= `You won this round ${playerSelection} beats ${computerSelection}.
+        Player Score = ${playerScore} vs 
+        Computer Score = ${computerScore}`;
+        } else if((playerSelection==='rock' && computerSelection==='rock') || 
+        (playerSelection==='paper' && computerSelection==='paper') || 
+        (playerSelection==='scissors' && computerSelection==='scissors'))
+        {result.textContent= 'This round is a tie.';
+        } else { computerScore+=1
+        result.textContent= `You lost this round, ${computerSelection} beats ${playerSelection}.
+        Player score= ${playerScore} vs Computer Score= ${computerScore}`;}
+        
+        if (playerScore === 5) {
+        result.textContent = `You won the game: ${playerScore} - ${computerScore}. Press the reload button to restart the game`
+        } 
+        if (computerScore === 5) {
+        result.textContent= `You lost the game: ${playerScore} - ${computerScore}. Press the reload button to restart the game`  
+          }
+        }
+
+      </script>
+      
   </body>
 </html>
